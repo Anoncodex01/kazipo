@@ -52,7 +52,7 @@ export const useAdminStore = create<AdminState>((set) => ({
     set({ isLoading: true, error: null });
     try {
       // Call backend endpoint to create employee
-      const response = await fetch('http://localhost:4000/api/employee', {
+      const response = await fetch('/api/employee', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -80,6 +80,9 @@ const AttendanceTable: React.FC<AttendanceTableProps> = ({ history }) => {
               <tr key={day.date} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
                   {format(new Date(day.date), 'EEE, MMM d, yyyy')}
+                  <span className="ml-2 text-xs text-gray-400">
+                    ({format(new Date(day.date), 'EEEE')})
+                  </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-300">
                   {checkInRecord 

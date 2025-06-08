@@ -114,14 +114,12 @@ const Header: React.FC = () => {
                       transition={{ duration: 0.2 }}
                       className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
-                      <Link
-                        to="/profile"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        onClick={() => setIsProfileOpen(false)}
+                      <span
+                        className="flex items-center px-4 py-2 text-sm text-gray-500 dark:text-gray-400"
                       >
                         <User className="mr-2 h-4 w-4" />
-                        Profile
-                      </Link>
+                        Profile (Coming Soon)
+                      </span>
                       <Link
                         to="/attendance"
                         className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -130,14 +128,12 @@ const Header: React.FC = () => {
                         <Clock className="mr-2 h-4 w-4" />
                         Attendance
                       </Link>
-                      <Link
-                        to="/settings"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-                        onClick={() => setIsProfileOpen(false)}
+                      <span
+                        className="flex items-center px-4 py-2 text-sm text-gray-500 dark:text-gray-400"
                       >
                         <Settings className="mr-2 h-4 w-4" />
-                        Settings
-                      </Link>
+                        Settings (Coming Soon)
+                      </span>
                       <button
                         onClick={() => {
                           setIsProfileOpen(false);

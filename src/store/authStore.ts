@@ -63,12 +63,28 @@ export const useAuthStore = create<AuthState>((set) => ({
 }));
 
 // Initialize auth state from localStorage on app load
-export const initAuth = () => {
-  const user = localStorage.getItem('user');
-  if (user) {
-    useAuthStore.setState({
-      user: JSON.parse(user),
-      isAuthenticated: true
-    });
+export const initAuth = async () => {
+  const userStr = localStorage.getItem('user');
+  if (userStr) {
+    const user = JSON.parse(userStr);
+    // Check if user still exists in Supabase
+    try {
+      const { data, error } = await supabase
+        .from('employees')
+        .select('id')
+        .eq('id', user.id)
+        .single();
+      if (error || !data) {
+        // User no longer exists, clear localStorage and state
+        localStorage.removeItem('user');
+        useAuthStore.setState({ user: null, isAuthenticated: false });
+      } else {
+        useAuthStore.setState({ user, isAuthenticated: true });
+      }
+    } catch (err) {
+      // On error, clear auth state for safety
+      localStorage.removeItem('user');
+      useAuthStore.setState({ user: null, isAuthenticated: false });
+    }
   }
 };

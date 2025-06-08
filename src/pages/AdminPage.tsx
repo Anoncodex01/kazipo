@@ -146,7 +146,7 @@ const AdminPage: React.FC = () => {
   const handleNextMonth = () => {
     setCurrentDate(addMonths(currentDate, 1));
   };
-
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}

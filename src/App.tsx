@@ -12,8 +12,10 @@ import LandingPage from './pages/LandingPage';
 function App() {
   // Initialize auth and theme on app load
   useEffect(() => {
-    initAuth();
-    initTheme();
+    (async () => {
+      await initAuth();
+      initTheme();
+    })();
   }, []);
   
   return (

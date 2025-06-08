@@ -8,9 +8,9 @@ interface AttendanceTableProps {
 }
 
 const AttendanceTable: React.FC<AttendanceTableProps> = ({ history }) => {
-  // Sort history by date (most recent first)
+  // Sort history by date (oldest first)
   const sortedHistory = [...history].sort((a, b) => {
-    return new Date(b.date).getTime() - new Date(a.date).getTime();
+    return new Date(a.date).getTime() - new Date(b.date).getTime();
   });
   
   // Get status badge
